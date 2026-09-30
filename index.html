@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ôn Tập Tài Chính Học HUBT - 75 Câu Khác Biệt Chuẩn 2025</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+      --primary-light: #e0f2fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --warning: #d97706;
+      --warning-light: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 50px;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn:hover { background: #f1f5f9; }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover { background: #0369a1; }
+
+    .timer-badge {
+      font-family: monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--warning);
+      background: var(--warning-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
+    }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .q-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+    .q-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .option-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .option-key {
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .option-item.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .option-item.selected .option-key {
+      background: var(--primary);
+      color: #fff;
+    }
+    .option-item.is-correct {
+      border-color: var(--success) !important;
+      background: var(--success-light) !important;
+    }
+    .option-item.is-correct .option-key {
+      background: var(--success) !important;
+      color: #fff !important;
+    }
+    .option-item.is-wrong {
+      border-color: var(--danger) !important;
+      background: var(--danger-light) !important;
+    }
+    .option-item.is-wrong .option-key {
+      background: var(--danger) !important;
+      color: #fff !important;
+    }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+    }
+
+    .explain-card {
+      margin-top: 15px;
+      padding: 14px;
+      background: #f0fdf4;
+      border-left: 4px solid var(--success);
+      border-radius: 0 8px 8px 0;
+      display: none;
+    }
+    .explain-title {
+      font-weight: 700;
+      color: var(--success);
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    .explain-body {
+      font-size: 0.9rem;
+      color: #1e293b;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      max-height: 460px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .palette-btn {
+      height: 38px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .palette-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .palette-btn.active { outline: 2px solid var(--primary); background: #ffffff; color: var(--primary); }
+    .palette-btn.answered { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+    .palette-btn.correct-val { background: var(--success-light); color: var(--success); border-color: var(--success); }
+    .palette-btn.wrong-val { background: var(--danger-light); color: var(--danger); border-color: var(--danger); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand-title">
+        <span class="brand-badge">HUBT</span>
+        <span>Ôn Tập 75 Câu Khác Biệt (Tài Chính Học 2025)</span>
+      </div>
+      <div class="top-controls">
+        <button class="btn" id="modeBtn">Chế độ: Luyện tập</button>
+        <div class="timer-badge" id="timerBadge">45:00</div>
+        <button class="btn btn-primary" id="finishBtn">Nộp bài</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="card">
+        <div class="q-header">
+          <span class="q-badge" id="qBadge">CÂU HỎI 1 / 75</span>
+          <button class="btn" id="flagBtn" style="font-size:0.8rem; padding:3px 8px;">🚩 Đánh dấu</button>
+        </div>
+        <h2 class="q-title" id="qTitle">Đang tải câu hỏi...</h2>
+
+        <div class="options-list" id="optContainer"></div>
+
+        <div class="bottom-bar">
+          <button class="btn" id="prevBtn">← Câu trước</button>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Phím tắt: A, B, C, D (hoặc 1, 2, 3, 4)</span>
+          <button class="btn btn-primary" id="nextBtn">Câu sau →</button>
+        </div>
+
+        <div class="explain-card" id="explainCard">
+          <div class="explain-title">Cơ sở lý luận & Đáp án chuẩn:</div>
+          <div class="explain-body" id="explainBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card" style="height: fit-content;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <strong style="font-size:0.95rem;">Mục lục câu hỏi</strong>
+          <span id="counterText" style="font-size:0.85rem; font-weight:700; color:var(--primary);">0/75 câu</span>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all">Tất cả</button>
+          <button class="tab-btn" data-filter="unanswered">Chưa làm</button>
+          <button class="tab-btn" data-filter="wrong">Làm sai</button>
+          <button class="tab-btn" data-filter="flagged">Đánh dấu</button>
+        </div>
+
+        <div class="palette-grid" id="paletteGrid"></div>
+
+        <button class="btn" id="resetBtn" style="width:100%; margin-top:12px; color:var(--danger); border-color:#fca5a5;">
+          🔄 Làm lại từ đầu
+        </button>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const questions = [
+      { origin: 18, q: "Hỗ trợ phát triển chính thức (ODA) thuộc loại nào dưới đây?", options: ["Cho vay có điều kiện", "Cho vay thương mại", "Cho vay ưu đãi", "Cho vay trung hạn và dài hạn"], ans: 2, exp: "ODA bản chất là nguồn vốn hỗ trợ phát triển chính thức mang tính chất cho vay ưu đãi (lãi suất thấp, thời hạn dài)." },
+      { origin: 19, q: "Điểm khác nhau cơ bản giữa hình thức tín dụng nhà nước với tín dụng ngân hàng là:", options: ["Mục tiêu hoạt động không vì lợi nhuận", "Hoạt động đi vay là chủ yếu", "Hoạt động cho vay là chủ yếu", "Phân phối lại tổng sản phẩm quốc dân"], ans: 0, exp: "Tín dụng nhà nước phi lợi nhuận nhằm thực hiện mục tiêu vĩ mô, còn tín dụng ngân hàng hướng tới mục tiêu lợi nhuận." },
+      { origin: 20, q: "Tín dụng nhà nước hỗ trợ lãi suất đầu tư cho chủ đầu tư vào thời điểm nào?", options: ["Trước khi đầu tư", "Trong quá trình đầu tư", "Sau khi đầu tư", "Cả trước, trong và sau đầu tư"], ans: 2, exp: "Hỗ trợ lãi suất đầu tư của Tín dụng nhà nước được cấp theo cơ chế 'sau đầu tư' khi dự án hoàn thành và đi vào khai thác có hiệu quả." },
+      { origin: 21, q: "Tín phiếu kho bạc là loại trái phiếu chính phủ có kỳ hạn nào dưới đây?", options: ["Dưới 1 năm", "Trên 1 năm", "Từ 1 đến 3 năm", "Từ 5 năm trở lên"], ans: 0, exp: "Tín phiếu kho bạc là công cụ nợ ngắn hạn có kỳ hạn dưới 1 năm." },
+      { origin: 22, q: "Nội dung nào dưới đây không phải là phương thức thu ngân sách Nhà nước đối với các khoản Thuế, Phí và Lệ phí?", options: ["Kho bạc nhà nước trực tiếp thu đối với tổ chức cá nhân cố định", "Cơ quan thuế trực tiếp thu của tổ chức cá nhân không cố định", "Cơ quan Hải quan trực tiếp thu của tổ chức cá nhân không cố định", "Cơ quan Tài chính có trực tiếp thu các khoản thuế, phí và lệ phí"], ans: 3, exp: "Cơ quan Tài chính quản lý phân bổ dự toán, việc thu nộp trực tiếp do Thuế, Hải quan và Kho bạc thực hiện." },
+      { origin: 23, q: "Theo qui định hiện hành, nhiệm vụ nào dưới đây không phải là nhiệm vụ của Kho bạc nhà nước trong quản lý ngân sách nhà nước?", options: ["Kiểm soát thanh toán các khoản chi từ quỹ NSNN", "Tập trung kịp thời, đầy đủ các khoản thu NSNN", "Cho vay vốn các dự án quốc gia", "Huy động vốn cho ngân sách nhà nước"], ans: 2, exp: "Kho bạc Nhà nước không trực tiếp làm nhiệm vụ cho vay vốn các dự án (thuộc ngân hàng chính sách, VDB)." },
+      { origin: 24, q: "Huy động vốn thông qua phát hành trái phiếu Chính phủ nhằm mục đích nào dưới đây?", options: ["Đầu tư cho các chương trình, dự án nhà nước", "Bù đắp thiếu hụt ngân sách nhà nước và bổ sung nguồn vốn cho đầu tư phát triển", "Cho các doanh nghiệp vay lại để hưởng lãi suất", "Bổ sung kinh phí cho các hoạt động thường xuyên"], ans: 1, exp: "Phát hành trái phiếu Chính phủ nhằm bù đắp bội chi NSNN và huy động vốn dài hạn cho đầu tư phát triển." },
+      { origin: 51, q: "Chức năng nào sau đây không phải là chức năng của chứng khoán?", options: ["Là công cụ để huy động vốn và phân phối vốn", "Được mua nhưng không được quyền chuyển nhượng trên thị trường tài chính", "Là công cụ để đầu tư, kinh doanh vốn", "Được mua bán, chuyển nhượng trên thị trường tài chính"], ans: 1, exp: "Tính thanh khoản (tự do chuyển nhượng trên thị trường) là thuộc tính cốt lõi của chứng khoán." },
+      { origin: 53, q: "Trong các khái niệm hệ thống ngân sách nhà nước dưới đây, khái niệm nào là đúng?", options: ["Hệ thống ngân sách gồm NSNN, tài chính doanh nghiệp và tài chính dân cư", "Hệ thống ngân sách nhà nước là hệ thống các cơ quan tài chính", "Hệ thống NSNN là tổng thể các cấp ngân sách có quan hệ mật thiết với nhau trong quá trình thực hiện nhiệm vụ thu, chi của ngân sách nhà nước mỗi cấp", "Hệ thống ngân sách nhà nước là hệ thống các cơ quan thu"], ans: 2, exp: "Hệ thống NSNN là tổng thể các cấp ngân sách liên kết chặt chẽ với nhau trong quá trình thực hiện thu chi." },
+      { origin: 55, q: "Nguyên tắc nào dưới đây không phải là nguyên tắc quản lý chi đầu tư phát triển của ngân sách nhà nước?", options: ["Cấp phát vốn đầu tư đúng mục đích, đúng đối tượng", "Thực hiện đúng trình tự đầu tư xây dựng cơ bản của Nhà nước", "Cấp phát, thanh toán không phải theo khối lượng hoàn thành nhưng phải trong phạm vi dự toán đã được duyệt", "Cấp phát, thanh toán trong phạm vi kế hoạch vốn đầu tư hàng năm đã được phân bổ"], ans: 2, exp: "Chi ĐTPT bắt buộc phải thanh toán căn cứ theo khối lượng thực tế hoàn thành đã nghiệm thu." },
+      { origin: 56, q: "Nguyên tắc nào sau đây không phải là nguyên tắc phân cấp quản lý ngân sách nhà nước?", options: ["Phân cấp quản lý ngân sách phải tiến hành đồng bộ với phân cấp KT-XH", "Phân cấp NSNN phải đảm bảo vai trò chủ đạo của ngân sách trung ương", "Phân cấp quản lý ngân sách nhà nước phải đảm bảo công khai, minh bạch", "Phân cấp quản lý ngân sách nước phải đảm bảo phân chia đồng đều ngân sách giữa các địa phương"], ans: 3, exp: "Phân cấp ngân sách căn cứ vào tiềm lực và nhiệm vụ chi của từng địa phương, không phân chia cào bằng." },
+      { origin: 57, q: "Nội dung nào dưới đây không phải là nội dung phân cấp quản lý ngân sách nước?", options: ["Phân cấp về thẩm quyền ban hành cơ chế chính sách", "Phân cấp về nguồn thu và nhiệm vụ chi", "Phân cấp về thẩm quyền ban hành các luật thuế", "Phân cấp về trách nhiệm trong quá trình thực hiện chu trình ngân sách nhà nước"], ans: 2, exp: "Thẩm quyền ban hành Luật thuế là độc quyền lập pháp của Quốc hội, không phân cấp cho địa phương." },
+      { origin: 58, q: "Hỗ trợ lãi suất sau đầu tư của hoạt động tín dụng nhà nước thuộc loại chi nào của ngân sách nhà nước?", options: ["Chi thường xuyên", "Chi đầu tư phát triển", "Chi góp vốn của Chính phủ", "Chi cho vay của Chính phủ"], ans: 1, exp: "Cấp bù lãi suất tín dụng ưu đãi được phân loại vào nhóm Chi đầu tư phát triển của ngân sách." },
+      { origin: 60, q: "Chi cho công tác bầu cử Quốc hội và Hội đồng nhân dân các cấp thuộc khoản chi nào dưới đây của ngân sách nhà nước?", options: ["Chi không thường xuyên", "Chi thực hiện chương trình mục tiêu quốc gia", "Chi thường xuyên", "Chi phát triển nguồn nhân lực"], ans: 2, exp: "Kinh phí phục vụ hoạt động bầu cử được hạch toán vào nguồn Chi thường xuyên (quản lý nhà nước) của ngân sách." },
+      { origin: 61, q: "Nội dung nào dưới đây thể hiện sự khác biệt cơ bản giữa quỹ ngân sách nhà nước và quỹ tài chính công ngoài ngân sách nhà nước?", options: ["Sự can thiệp của Nhà nước vào KT-XH nhằm thực hiện chức năng Nhà nước", "Nhà nước quyết định thành lập, ban hành cơ chế quản lý", "Qui mô quỹ đều phụ thuộc vào thực trạng nền kinh tế", "Phần lớn quỹ tài chính công ngoài ngân sách được điều chỉnh bởi các văn bản dưới luật"], ans: 3, exp: "NSNN do Luật NSNN điều chỉnh, còn các quỹ ngoài NSNN chủ yếu được điều chỉnh bởi các văn bản dưới luật (Nghị định/Quyết định)." },
+      { origin: 62, q: "Nguyên tắc nào dưới đây không phải là nguyên tắc quản lý Quỹ dự trữ nhà nước?", options: ["Nguyên tắc tập trung thống nhất", "Nguyên tắc công khai, minh bạch", "Nguyên tắc sẵn sàng", "Nguyên tắc bí mật"], ans: 1, exp: "Dự trữ nhà nước quốc gia liên quan đến an ninh quốc phòng nên hoạt động theo nguyên tắc bí mật, không công khai rộng rãi." },
+      { origin: 64, q: "Nguyên tắc nào dưới đây không phải là nguyên tắc vay nợ của Chính phủ?", options: ["Bảo đảm hài hòa giữa chính sách vay và trả nợ", "Chiến lược vay nợ phải đặt trong mối quan hệ với chính sách tài chính quốc gia", "Trong dài hạn vay nước ngoài phải lớn hơn vay trong nước", "Xác định chính xác lãi suất vay nợ Chính phủ"], ans: 2, exp: "Chiến lược nợ công bền vững luôn ưu tiên tối đa nguồn vay trong nước bằng đồng bản tệ để hạn chế rủi ro ngoại tệ." },
+      { origin: 65, q: "Đối tượng nào dưới đây không được vay lại khoản vay nước ngoài của Chính phủ?", options: ["Tổ chức tín dụng vay theo các chương trình tín dụng dự án", "Doanh nghiệp vay để đầu tư cho dự án có khả năng thu hồi vốn", "Ủy ban nhân dân tỉnh vay đầu tư phát triển KT-XH địa phương", "Cá nhân, tổ chức vay để xây dựng nhà ở, trụ sở làm việc"], ans: 3, exp: "Chính phủ tuyệt đối không cho cá nhân vay lại vốn ODA/vay ưu đãi nước ngoài để xây dựng nhà ở hay trụ sở." },
+      { origin: 66, q: "Nội dung nào dưới đây không phải là đặc điểm của thu ngân sách nhà nước?", options: ["Thu NSNN mang tính pháp chế và tính cưỡng chế cao", "Thu NSNN phần lớn không được hoàn trả trực tiếp", "Thu NSNN luôn chứa đựng mối quan hệ kinh tế, chính trị, lợi ích", "Thu ngân sách nhà nước chủ yếu mang tính chất tự nguyện"], ans: 3, exp: "Thu ngân sách nhà nước dựa trên quyền lực chính trị cưỡng chế, mang tính bắt buộc luật định chứ không phải 'tự nguyện'." },
+      { origin: 72, q: "Nội dung nào dưới đây là chi thường xuyên của ngân sách nhà nước?", options: ["Chi đầu tư xây dựng hạ tầng KT-XH", "Chi mua hàng hóa, vật tư chiến lược dự trữ quốc gia", "Chi cho an ninh quốc phòng", "Chi thực hiện các chương trình mục tiêu quốc gia"], ans: 2, exp: "Chi quốc phòng và an ninh trật tự là nội dung trọng tâm thuộc nhóm Chi thường xuyên của ngân sách nhà nước." },
+      { origin: 73, q: "Dự trữ nhà nước được hình thành từ nguồn tài chính chủ yếu nào sau đây?", options: ["Ngân sách nhà nước", "Viện trợ của các tổ chức quốc tế", "Đóng góp của các doanh nghiệp", "Vay nợ trong và ngoài nước"], ans: 0, exp: "Ngân sách Nhà nước là nguồn tài chính chủ yếu cấp phát trực tiếp hình thành Quỹ dự trữ quốc gia." },
+      { origin: 74, q: "Nội dung nào sau đây không phải là mục đích vay nợ của Chính phủ?", options: ["Bù đắp thiếu hụt tạm thời của ngân sách nhà nước", "Sử dụng cho cải cách tiền lương đối với cán bộ, công chức, viên chức Nhà nước", "Đầu tư phát triển KT-XH thuộc nhiệm vụ chi ngân sách trung ương", "Cơ cấu lại các khoản nợ của Chính phủ"], ans: 1, exp: "Tiền vay nợ công chỉ được dùng cho chi đầu tư phát triển, tuyệt đối không được dùng để chi thường xuyên hoặc trả lương công chức." },
+      { origin: 75, q: "Tính thanh khoản của trái phiếu chính phủ so với cổ phiếu của doanh nghiệp thường:", options: ["Cao hơn", "Thấp hơn", "Không xác định được", "Phụ thuộc vào từng hoàn cảnh cụ thể"], ans: 0, exp: "Trái phiếu Chính phủ có độ an toàn phi rủi ro cao và được thị trường liên ngân hàng chấp nhận giao dịch rộng rãi nên thanh khoản cao hơn." },
+      { origin: 76, q: "Vai trò của tín dụng nhà nước là:", options: ["Góp phần nâng cao hiệu quả sử dụng các nguồn lực", "Phát huy cao nhất về lợi thế so sánh của đất nước", "Thúc đẩy hợp tác và hội nhập quốc tế qua phát hành trái phiếu và vay nợ", "Tất cả các phương án trên"], ans: 3, exp: "Tín dụng nhà nước bao hàm đầy đủ tất cả các vai trò về phân bổ nguồn lực, lợi thế so sánh và hội nhập quốc tế." },
+      { origin: 77, q: "Nội dung nào dưới đây đúng về Bảo hiểm xã hội ở Việt Nam?", options: ["Đây là một phương thức kinh doanh nhằm mục đích sinh lời", "Là chính sách trong hệ thống an sinh xã hội", "Là quỹ tiền tệ do doanh nghiệp quản lý", "Áp dụng bắt buộc đối với tất cả người lao động trong xã hội"], ans: 1, exp: "BHXH là trụ cột của hệ thống an sinh xã hội quốc gia, hoạt động phi lợi nhuận dưới sự bảo trợ của Nhà nước." },
+      { origin: 78, q: "Tài sản ngắn hạn của doanh nghiệp là những tài sản có thời gian thu hồi vốn trong bao lâu?", options: ["Trong vòng 1 năm và một chu kỳ kinh doanh", "Trong vòng 1 chu kỳ kinh doanh dưới 1 năm", "Trong vòng 1 năm hoặc một chu kỳ kinh doanh", "Trong vòng 1 chu kỳ kinh doanh từ 6 tháng đến 1 năm"], ans: 2, exp: "Tài sản ngắn hạn là tiền và các tài sản có thể chuyển đổi thành tiền hoặc tiêu dùng trong vòng 1 năm hoặc một chu kỳ kinh doanh." },
+      { origin: 79, q: "Căn cứ vào mục đích hoạt động của các tổ chức bảo hiểm, có thể phân loại bảo hiểm thành:", options: ["Phương thức tự bảo hiểm và phân tán rủi ro", "Bảo hiểm theo kỹ thuật phân chia và tích lũy vốn", "Bảo hiểm có mục đích kinh doanh và không có mục đích kinh doanh", "Bảo hiểm con người và bảo hiểm tài sản"], ans: 2, exp: "Phân loại theo mục đích hoạt động: Bảo hiểm thương mại (có mục đích kinh doanh) và Bảo hiểm phi thương mại (không kinh doanh lợi nhuận)." },
+      { origin: 80, q: "Trong những nội dung dưới đây, nội dung nào là một trong những đặc điểm của kiểm tra tài chính?", options: ["Kiểm tra bằng đồng tiền và kiểm tra thực tế kỹ thuật công trình", "Kiểm tra tài chính được tiến hành ở mọi lĩnh vực, mọi đơn vị và cá nhân", "Kiểm tra tài chính được thực hiện cố định 6 tháng một lần", "Kiểm tra tài chính chỉ được tiến hành trong lĩnh vực công"], ans: 1, exp: "Kiểm tra tài chính mang tính toàn diện và phổ biến ở mọi chủ thể có hoạt động tạo lập, chu chuyển quỹ tiền tệ." },
+      { origin: 81, q: "Nguyên tắc nào dưới đây là nguyên tắc kiểm tra tài chính?", options: ["Nguyên tắc chính xác, khách quan, công khai và phổ cập", "Nguyên tắc tiết kiệm và hiệu quả", "Nguyên tắc độc lập", "Nguyên tắc chính xác, công bằng, khách quan"], ans: 0, exp: "Giáo trình Tài chính học quy định 4 nguyên tắc kiểm tra tài chính cốt lõi: Chính xác, khách quan, công khai và phổ cập." },
+      { origin: 82, q: "Nội dung nào dưới đây không phải là chức năng của thanh tra tài chính?", options: ["Thanh tra chấp hành chính sách pháp luật tài chính", "Thanh tra việc ban hành các chính sách, pháp luật về quản lý tài chính công", "Giải quyết khiếu nại, tố cáo trong lĩnh vực tài chính", "Xử phạt hành chính trong lĩnh vực tài chính, kế toán, thuế"], ans: 1, exp: "Thanh tra tài chính chỉ kiểm tra việc chấp hành pháp luật, không có thẩm quyền thanh tra việc ban hành văn bản quy phạm pháp luật." },
+      { origin: 83, q: "Hàng hóa đưa vào dự trữ quốc gia là những loại hàng hóa gì?", options: ["Hàng hóa khan hiếm", "Hàng hóa có tính chiến lược, thiết yếu và quan trọng", "Không thể mua được trên thị trường", "Trong nước không sản xuất"], ans: 1, exp: "Hàng hóa dự trữ quốc gia bắt buộc phải là những mặt hàng chiến lược, thiết yếu phục vụ an ninh và phòng chống thiên tai." },
+      { origin: 84, q: "Tổng cục dự trữ quốc gia trực thuộc Bộ nào sau đây?", options: ["Bộ Kế hoạch và Đầu tư", "Bộ Tài chính", "Bộ Tài nguyên và Môi trường", "Bộ Giao thông - Vận tải"], ans: 1, exp: "Tổng cục Dự trữ Nhà nước là cơ quan trực thuộc Bộ Tài chính." },
+      { origin: 85, q: "Quỹ nào sau đây không phải là quỹ thành phần của Quỹ BHXH?", options: ["Quỹ trợ cấp ốm đau, thai sản", "Quỹ trợ cấp tai nạn lao động và bệnh nghề nghiệp", "Quỹ hưu trí và tử tuất", "Quỹ phát triển SXKD của doanh nghiệp"], ans: 3, exp: "Quỹ phát triển sản xuất kinh doanh là quỹ nội bộ của doanh nghiệp, không thuộc cơ cấu Quỹ BHXH." },
+      { origin: 86, q: "Nguyên tắc nào dưới đây không phải là nguyên tắc quản lý quỹ BHXH?", options: ["Nguyên tắc lấy số đông bù số ít", "Nguyên tắc kết hợp bắt buộc với tự nguyện", "Nguyên tắc mức trợ cấp thấp hơn tiền lương lúc làm việc nhưng đảm bảo mức sống tối thiểu", "Nguyên tắc ai làm nhiều hưởng nhiều, ai làm ít hưởng ít"], ans: 3, exp: "BHXH thực hiện nguyên tắc chia sẻ rủi ro và đóng - hưởng tương ứng, không áp dụng nguyên tắc tiền lương kinh doanh 'làm nhiều hưởng nhiều'." },
+      { origin: 87, q: "Khoản trợ cấp nào sau đây không thuộc trách nhiệm của BHXH?", options: ["Chi trả trợ cấp ốm đau, thai sản", "Chi trả trợ cấp hưu trí", "Chi trả trợ cấp tai nạn lao động, bệnh nghề nghiệp", "Chi trả trợ cấp cho người tham gia bảo hiểm xe máy do tai nạn giao thông"], ans: 3, exp: "Bảo hiểm trách nhiệm dân sự xe cơ giới là bảo hiểm thương mại do doanh nghiệp bảo hiểm phi nhân thọ chi trả." },
+      { origin: 88, q: "Nội dung nào sau đây không phải là nhiệm vụ của quỹ bảo vệ môi trường Việt Nam?", options: ["Huy động nguồn vốn trong nước để bảo vệ môi trường", "Hỗ trợ dự án phòng, chống, khắc phục ô nhiễm môi trường", "Tổ chức thẩm định và lựa chọn dự án bảo vệ môi trường", "Trợ cấp cho người tàn tật"], ans: 3, exp: "Trợ cấp người tàn tật thuộc chính sách bảo trợ xã hội của ngành LĐ-TB&XH, không thuộc nhiệm vụ của Quỹ Bảo vệ môi trường." },
+      { origin: 89, q: "Nguồn nào sau đây không phải là nguồn hình thành của quỹ bảo vệ môi trường Việt Nam?", options: ["Vốn điều lệ do NSNN cấp ban đầu", "Nguồn thu nhập hợp pháp trong quá trình hoạt động", "Kinh phí sự nghiệp môi trường do NSNN cấp hàng năm", "Thu thuế bảo vệ môi trường"], ans: 3, exp: "Thu thuế bảo vệ môi trường phải nộp 100% vào Ngân sách Nhà nước để cân đối chung, không đưa vào làm nguồn quỹ ngoài ngân sách." },
+      { origin: 90, q: "Nội dung nào sau đây không phải là nội dung sử dụng Quỹ bảo vệ môi trường Việt Nam?", options: ["Cho vay lãi suất ưu đãi đối với dự án xử lý chất thải", "Chi đầu tư mua sắm TSCĐ phục vụ hoạt động của quỹ", "Được trích lập quỹ dự phòng rủi ro", "Chi đóng góp từ thiện ở các Đền, Chùa"], ans: 3, exp: "Quỹ công ngoài ngân sách phải sử dụng đúng tôn chỉ mục đích môi trường, nghiêm cấm việc chi từ thiện tự phát." },
+      { origin: 91, q: "Nội dung nào sau đây không phải là nội dung hoạt động của Quỹ ĐTPT địa phương?", options: ["Huy động vốn trung và dài hạn từ các tổ chức, cá nhân", "Đầu tư vào các dự án kết cấu hạ tầng KT-XH", "Ủy thác cho vay vốn đầu tư, nhận ủy thác quản lý nguồn vốn", "Trợ cấp cho các địa phương để giải quyết khó khăn về đời sống"], ans: 3, exp: "Quỹ ĐTPT địa phương hoạt động theo mô hình định chế tài chính đầu tư hạ tầng có hoàn vốn, không cấp phát cứu trợ đời sống." },
+      { origin: 92, q: "Trong Tín dụng Nhà nước, Nhà nước đóng vai trò là:", options: ["Người đi vay", "Người cho vay", "Cả hai đối tượng trên", "Chỉ là cấp phát kinh phí không hoàn lại"], ans: 2, exp: "Nhà nước vừa đóng vai trò người đi vay (phát hành trái phiếu, tín phiếu, vay ODA) vừa là người cho vay (tín dụng đầu tư ưu đãi)." },
+      { origin: 93, q: "Các tổ chức, cá nhân sử dụng vốn TDNN phải tuân thủ nguyên tắc nào dưới đây?", options: ["Nguyên tắc trả cả gốc và lãi", "Nguyên tắc chỉ trả vốn vay (gốc)", "Nguyên tắc chỉ trả lãi vay", "Không phải trả cả gốc và lãi"], ans: 0, exp: "Tín dụng có bản chất hoàn trả, do đó bên sử dụng vốn bắt buộc phải hoàn trả đầy đủ cả nợ gốc và nợ lãi khi đến hạn." },
+      { origin: 94, q: "Trong các quan hệ giữa Nhà nước với các chủ thể sau đây, quan hệ nào không thuộc phạm vi của TDNN?", options: ["Giữa Nhà nước với các tổ chức, cá nhân trong nền kinh tế", "Giữa Nhà nước với Chính phủ các nước", "Giữa Nhà nước với các tổ chức tài chính quốc tế", "Giữa Nhà nước với các cơ quan hành chính nhà nước"], ans: 3, exp: "Quan hệ giữa Nhà nước với các cơ quan hành chính là quan hệ cấp phát dự toán ngân sách công, không phải quan hệ hoàn trả tín dụng." },
+      { origin: 95, q: "Trong TDNN, khi Nhà nước trả vốn vay gốc được lấy từ nguồn nào sau đây?", options: ["Lấy từ NSNN", "Lấy từ các NHTM", "Lấy từ Văn phòng Chính phủ", "Lấy từ quỹ riêng của Bộ Tài chính"], ans: 0, exp: "Nợ công là nghĩa vụ quốc gia, tiền hoàn trả nợ gốc các khoản vay của Chính phủ được trích từ quỹ Ngân sách Nhà nước." },
+      { origin: 96, q: "Khi Nhà nước đi vay, khoản chi trả lãi vay được hạch toán vào đâu?", options: ["Khoản chi của Văn phòng Chính phủ", "Khoản chi thường xuyên của Ngân sách Nhà nước", "Khoản chi của cơ quan Bộ Tài chính", "Khoản chi của Tổng cục Thuế"], ans: 1, exp: "Theo Luật NSNN, chi trả nợ lãi các khoản vay của Nhà nước được xếp vào nhóm Chi thường xuyên của ngân sách nhà nước." },
+      { origin: 97, q: "Tổ chức nào dưới đây được Nhà nước giao thực hiện và quản lý hoạt động TDNN?", options: ["City Bank Việt Nam", "Ngân hàng Phát triển Việt Nam (VDB)", "Ngân hàng ANZ Việt Nam", "Quỹ bảo vệ môi trường Việt Nam"], ans: 1, exp: "Ngân hàng Phát triển Việt Nam (VDB) là ngân hàng chính sách thực thi tín dụng đầu tư và xuất khẩu của Nhà nước." },
+      { origin: 98, q: "Lãi suất huy động vốn của tín dụng Nhà nước phải?", options: ["Cao hơn lãi suất thị trường vốn", "Thấp hơn lãi suất thị trường vốn", "Bằng lãi suất thị trường vốn", "Theo cơ chế thị trường"], ans: 3, exp: "Lãi suất phát hành trái phiếu Chính phủ được xác định thông qua phương thức đấu thầu công khai theo cơ chế thị trường." },
+      { origin: 99, q: "Lãi suất cho vay của Tín dụng Nhà nước phải?", options: ["Cao hơn lãi suất thị trường vốn", "Lãi suất ưu đãi do Chính phủ qui định", "Bằng lãi suất thị trường vốn", "Theo cơ chế thỏa thuận tự do"], ans: 1, exp: "Nhà nước cho vay nhằm mục tiêu hỗ trợ phát triển các ngành/địa bàn trọng điểm nên áp dụng khung lãi suất ưu đãi do Thủ tướng quy định." },
+      { origin: 100, q: "Đặc điểm nào sau đây không phải là đặc điểm của TDNN?", options: ["Nguồn vốn vay đưa vào NSNN; nguồn cho vay và trả nợ trích từ NSNN", "Đối tượng cho vay là dự án theo chỉ định của Chính phủ", "Hoạt động TDNN không vì mục đích lợi nhuận", "Cho vay đối với tất cả các chủ thể trong nền kinh tế có nhu cầu về vốn"], ans: 3, exp: "TDNN giới hạn đối tượng theo danh mục dự án trọng điểm được duyệt, không cho vay đại trà cho mọi chủ thể như ngân hàng thương mại." },
+      { origin: 101, q: "Nguồn vốn nào sau đây không phải là nguồn vốn của TDNN?", options: ["Vốn huy động từ các Ngân hàng thương mại", "Vốn huy động từ tổ chức, cá nhân trong và ngoài nước", "Vốn Nhà nước vay Chính phủ các nước, tổ chức quốc tế", "Nguồn thu từ Thuế, Phí, Lệ phí"], ans: 3, exp: "Thuế, phí là nguồn thu cân đối ngân sách không hoàn lại, không cấu thành quỹ vốn vay hoàn trả tín dụng." },
+      { origin: 102, q: "Nội dung nào dưới đây không phải là vai trò của TDNN?", options: ["Tăng cường tiềm lực tài chính và lành mạnh hóa tài chính quốc gia", "Góp phần điều chỉnh cơ cấu kinh tế", "Nâng cao hiệu quả đầu tư và xóa bao cấp trong đầu tư", "TDNN là nguồn vốn quan trọng để trả lương cho cán bộ công chức, viên chức"], ans: 3, exp: "Lương công chức được chi từ quỹ chi thường xuyên của NSNN (nguồn thuế, phí), không dùng vốn tín dụng để chi trả." },
+      { origin: 103, q: "Nội dung nào dưới đây không phải là vai trò của TDNN?", options: ["Giúp doanh nghiệp mở rộng và nâng cao hiệu quả đầu tư", "Thúc đẩy mở rộng hợp tác và hội nhập quốc tế", "Góp phần xóa bao cấp trong đầu tư", "TDNN được sử dụng để chi cho hoạt động quản lý nhà nước"], ans: 3, exp: "Chi cho hoạt động bộ máy quản lý nhà nước là chi thường xuyên từ NSNN, không lấy từ nguồn vốn vay tín dụng." },
+      { origin: 104, q: "Hình thức nào sau đây không phải là hình thức huy động vốn trong nước của TDNN?", options: ["Phát hành trái phiếu Chính phủ", "Phát hành tín phiếu KBNN", "Phát hành công trái xây dựng Tổ quốc", "Huy động tiền gửi tiết kiệm của dân cư"], ans: 3, exp: "Huy động tiền gửi tiết kiệm cá nhân là nghiệp vụ kinh doanh độc quyền của các Ngân hàng thương mại, không phải nợ công của Nhà nước." },
+      { origin: 105, q: "Hình thức nào dưới đây là một trong các hình thức huy động vốn trong nước của TDNN?", options: ["Huy động tiền gửi tiết kiệm không kỳ hạn của dân cư", "Huy động tiền gửi của các tổ chức kinh tế", "Huy động tiền gửi tiết kiệm có kỳ hạn của dân cư", "Phát hành trái phiếu Chính phủ"], ans: 3, exp: "Phát hành trái phiếu Chính phủ là công cụ cơ bản và có quy mô lớn nhất để Nhà nước huy động vốn nợ công dài hạn." },
+      { origin: 106, q: "Đối tượng nào dưới đây không được TDNN hỗ trợ sau đầu tư?", options: ["Các dự án xây dựng kết cấu hạ tầng KT-XH", "Các dự án phát triển nông nghiệp, nông thôn", "Các dự án thuộc địa bàn có điều kiện kinh tế khó khăn", "Các dự án bất động sản nhà ở thương mại"], ans: 3, exp: "Các dự án bất động sản thương mại là hoạt động kinh doanh kiếm lời tư nhân, không thuộc diện được Nhà nước ưu đãi lãi suất." },
+      { origin: 107, q: "Thị trường vốn là thị trường giao dịch:", options: ["Các công cụ tài chính ngắn hạn", "Các công cụ tài chính trung và dài hạn", "Kỳ phiếu", "Tiền tệ"], ans: 1, exp: "Thị trường vốn chuyên giao dịch các công cụ tài chính có kỳ hạn trên 1 năm (trung và dài hạn)." },
+      { origin: 108, q: "Thị trường chứng khoán là một bộ phận của:", options: ["Thị trường tín dụng", "Thị trường liên ngân hàng", "Thị trường vốn", "Thị trường mở"], ans: 2, exp: "Thị trường chứng khoán (giao dịch cổ phiếu, trái phiếu dài hạn) là bộ phận nòng cốt cấu thành nên Thị trường vốn." },
+      { origin: 109, q: "Thị trường tài chính là nơi huy động vốn:", options: ["Ngắn hạn", "Trung hạn", "Dài hạn", "Ngắn hạn, trung hạn và dài hạn"], ans: 3, exp: "Thị trường tài chính bao gồm cả thị trường tiền tệ (ngắn hạn) và thị trường vốn (trung, dài hạn), đáp ứng mọi nhu cầu chu chuyển vốn." },
+      { origin: 110, q: "Cơ sở khách quan cho sự ra đời của Thị trường tài chính là gì?", options: ["Giải quyết mâu thuẫn giữa cung và cầu vốn trong nền kinh tế thông qua các công cụ tài chính đặc biệt", "Giải quyết mâu thuẫn giữa cung và cầu tiền tệ giữa các chủ thể trong nền kinh tế", "Giải quyết mâu thuẫn giữa cung và cầu vốn qua cổ phiếu, trái phiếu", "Giải quyết mâu thuẫn giữa cung và cầu tiền tệ qua các công cụ tài chính"], ans: 0, exp: "Thị trường tài chính ra đời để giải quyết mâu thuẫn khách quan giữa người thừa vốn và người thiếu vốn thông qua các công cụ tài chính." },
+      { origin: 111, q: "Theo đặc điểm của luân chuyển, vốn kinh doanh gồm:", options: ["Vốn cố định và vốn lưu động", "Vốn chủ sở hữu và vốn cố định", "Vốn điều lệ và vốn lưu động", "Vốn chủ sở hữu và vốn lưu động"], ans: 0, exp: "Theo tính chất chu chuyển giá trị vào sản phẩm: vốn kinh doanh chia thành Vốn cố định và Vốn lưu động." },
+      { origin: 112, q: "Chi phí sản xuất không bao gồm chi phí nào sau đây:", options: ["Chi phí nguyên vật liệu trực tiếp", "Chi phí nhân công trực tiếp", "Chi phí bán hàng", "Chi phí sản xuất chung"], ans: 2, exp: "Chi phí sản xuất gồm 3 khoản mục: NVL trực tiếp, nhân công trực tiếp và sản xuất chung. Bán hàng là chi phí thời kỳ." },
+      { origin: 113, q: "Khái niệm nào sau đây về doanh thu là đúng:", options: ["Doanh thu là toàn bộ số tiền thu được do hoạt động DN mang lại trong 1 thời kỳ (từ 1 năm trở lên)", "Doanh thu là toàn bộ số tiền thu được do hoạt động của doanh nghiệp mang lại trong 1 thời kỳ nhất định (thường là 1 năm)", "Số tiền chênh lệch giữa thu nhập và chi phí bỏ ra", "Số tiền chênh lệch giữa thu nhập và chi phí trong thời kỳ 1 năm"], ans: 1, exp: "Doanh thu là tổng giá trị các lợi ích kinh tế doanh nghiệp thu được trong kỳ kế toán phát sinh từ các hoạt động sản xuất kinh doanh (thường tính là 1 năm)." },
+      { origin: 114, q: "Tín phiếu kho bạc là hàng hóa của thị trường nào?", options: ["Thị trường chứng khoán, Thị trường tiền tệ, Thị trường vốn", "Thị trường vốn", "Thị trường chứng khoán", "Thị trường tiền tệ"], ans: 3, exp: "Tín phiếu kho bạc có kỳ hạn ngắn hạn dưới 1 năm nên là hàng hóa điển hình của Thị trường tiền tệ." },
+      { origin: 115, q: "Chủ thể nào sau đây cung cấp ODA cho nước tiếp nhận?", options: ["Công ty đa quốc gia", "Công ty chứng khoán của các nước", "Công ty bảo hiểm của các nước", "Chính phủ các nước, hoặc Tổ chức liên Chính phủ"], ans: 3, exp: "ODA chỉ do Chính phủ các nước phát triển hoặc các tổ chức liên chính phủ (WB, IMF, ADB...) tài trợ." },
+      { origin: 116, q: "Đặc điểm nào sau đây là đặc điểm của vay Hỗ trợ phát triển chính thức (ODA)?", options: ["Có thời hạn vay ngắn", "Có thời hạn vay dài, lãi suất thấp", "Có lãi suất theo lãi suất thị trường", "Không có thời gian ân hạn"], ans: 1, exp: "Khoản vay ODA có ưu đãi vượt trội: thời hạn trả nợ kéo dài và mức lãi suất rất thấp." },
+      { origin: 117, q: "Nhận định nào sau đây là chính xác?", options: ["Bảo hiểm xã hội là cơ chế loại trừ khả năng xẩy ra rủi ro đối với người lao động", "BHXH bù đắp một phần thiệt hại về vật chất cho người lao động khi gặp rủi ro", "BHXH luôn bù đắp toàn bộ những thiệt hại về vật chất và tinh thần khi rủi ro xảy ra", "BHXH chỉ có ý nghĩa đối với người lao động ở các nước nghèo"], ans: 1, exp: "BHXH bù đắp một phần thu nhập bị suy giảm hoặc mất đi để người lao động ổn định đời sống khi gặp rủi ro." },
+      { origin: 118, q: "Trong một năm ngân sách có tổng chi NSNN lớn hơn tổng thu NSNN được gọi là:", options: ["Thặng dư ngân sách", "Thâm hụt NSNN", "Cân đối NSNN", "Không xác định được"], ans: 1, exp: "Khi Tổng chi > Tổng thu trong một năm tài khóa được gọi là thâm hụt ngân sách (bội chi NSNN)." },
+      { origin: 119, q: "Nội dung nào sau đây không phải là nội dung chính sách tài chính quốc gia?", options: ["Chính sách nuôi dưỡng và phát triển nguồn lực tài chính", "Chính sách động viên và sử dụng các nguồn lực tài chính", "Chính sách ưu tiên phát triển nguồn nhân lực", "Chính sách mở rộng hoạt động thương mại và đầu tư"], ans: 2, exp: "Chính sách phát triển nhân lực thuộc lĩnh vực giáo dục - lao động xã hội, không phải bộ phận cấu thành chính sách tài chính quốc gia." },
+      { origin: 120, q: "Nhà nước thu thuế dựa vào quyền lực nào là chủ yếu?", options: ["Kinh tế", "Chính trị", "Ngoại giao", "Tất cả các quyền lực trên"], ans: 1, exp: "Thuế gắn liền với Nhà nước và mang tính cưỡng chế bằng luật pháp dựa trên Quyền lực chính trị." },
+      { origin: 121, q: "Khoản thu nào sau đây không thuộc nguồn thu của Ngân sách Nhà nước?", options: ["Thu từ tiền phạt vi phạm giao thông", "Lệ phí, phí giao thông", "Doanh thu của Doanh nghiệp Nhà nước", "Viện trợ của Chính phủ Nhật Bản"], ans: 2, exp: "Doanh thu bán hàng thuộc về doanh nghiệp; Nhà nước chỉ thu thuế và lợi nhuận được chia vào ngân sách." },
+      { origin: 122, q: "Nội dung nào sau đây không thuộc nội dung chi thường xuyên của ngân sách trung ương?", options: ["Chi cho các hoạt động giáo dục đào tạo thuộc trung ương quản lý", "Chi cho hoạt động của Quốc hội, Chủ tịch nước", "Chi mua hàng hóa, vật tư dự trữ nhà nước", "Chi phòng chống dịch bệnh y tế trên phạm vi toàn quốc"], ans: 2, exp: "Chi mua vật tư dự trữ quốc gia thuộc nhóm Chi dự trữ quốc gia / Chi đầu tư phát triển, không phải chi thường xuyên." },
+      { origin: 123, q: "Hệ thống Ngân sách Nhà nước ở nước ta được tổ chức từ cấp trung ương tới cấp nào dưới đây?", options: ["Cấp Tỉnh", "Cấp Huyện", "Cấp Xã", "Cấp Tổ dân phố"], ans: 2, exp: "Hệ thống NSNN ở nước ta được tổ chức qua các cấp hành chính từ Trung ương xuống đến cấp Xã." },
+      { origin: 124, q: "Tổ chức bộ máy quản lý tài chính Nhà nước của nước ta được tổ chức tới cấp nào dưới đây?", options: ["Sở tài chính", "Cục tài chính", "Phòng tài chính", "Ban tài chính"], ans: 2, exp: "Bộ máy ngành Tài chính được thiết lập theo ngành dọc hành chính tới cấp quận/huyện/thị xã (Phòng Tài chính - Kế hoạch)." },
+      { origin: 125, q: "Xét theo mục đích kinh tế - xã hội và thời hạn tác động, chi đầu tư phát triển của ngân sách nhà nước mang tính chất gì dưới đây?", options: ["Chi cho tích lũy", "Chi cho tiêu dùng", "Chi cho an sinh xã hội", "Không xác định được"], ans: 0, exp: "Chi đầu tư phát triển tạo ra cơ sở vật chất kỹ thuật dùng cho nhiều năm nên mang bản chất kinh tế là 'Chi cho tích lũy'." },
+      { origin: 126, q: "Khoản thu nào dưới đây hình thành nên quỹ Ngân sách Nhà nước?", options: ["Vay từ tổ chức tiền tệ quốc tế", "Thuế, phí và lệ phí", "Viện trợ của Chính phủ các nước", "Tất cả các khoản trên"], ans: 3, exp: "Quỹ NSNN được hình thành từ nguồn thu thuế, phí, lệ phí, cùng các khoản vay bù đắp bội chi và viện trợ quốc tế." },
+      { origin: 127, q: "Khoản thu nào sau đây sử dụng cho chi thường xuyên ngân sách nhà nước?", options: ["Trái phiếu Chính phủ phát hành qua Kho bạc nhà nước", "Vay của các Tổ chức tài chính tiền tệ quốc tế", "Vay Chính phủ các nước", "Thuế, Phí và lệ phí"], ans: 3, exp: "Thuế, phí và lệ phí là nguồn thu thường xuyên chủ yếu để đáp ứng các nhiệm vụ chi thường xuyên của NSNN." },
+      { origin: 128, q: "Trong các công cụ nợ sau đây, công cụ nào Chính phủ không sử dụng để vay nợ cho ngân sách nhà nước?", options: ["Trái phiếu chính phủ", "Tín phiếu kho bạc nhà nước", "Cổ phiếu", "Công trái xây dựng Tổ quốc"], ans: 2, exp: "Cổ phiếu là chứng khoán vốn do doanh nghiệp phát hành; Chính phủ chỉ phát hành chứng khoán nợ (trái phiếu, tín phiếu, công trái)." },
+      { origin: 129, q: "Trong hệ thống tài chính, không bao gồm khâu tài chính nào sau đây?", options: ["Tài chính doanh nghiệp", "Tài chính của các tổ chức kinh tế trong và ngoài nước", "Ngân sách nhà nước", "Tín dụng"], ans: 1, exp: "Hệ thống tài chính quốc gia gồm 3 khâu cơ bản: Tài chính doanh nghiệp, Ngân sách nhà nước và Tín dụng (bảo hiểm)." },
+      { origin: 130, q: "Nguồn tài chính nào dưới đây của 1 quốc gia là không chính xác?", options: ["GNP", "GDP", "Tài sản, tài nguyên thiên nhiên", "Lượng tiền kiều hối"], ans: 3, exp: "Kiều hối là luồng chuyển tiền thu nhập cá nhân từ nước ngoài về, không cấu thành khái niệm tổng thể các nguồn lực tài chính quốc gia." },
+      { origin: 131, q: "Yếu tố nào dưới đây không phải là yếu tố cấu thành một sắc thuế?", options: ["Tên gọi sắc thuế", "Đối tượng nộp thuế", "Qui mô thu của một sắc thuế", "Đối tượng chịu thuế"], ans: 2, exp: "Quy mô số tiền thu được là kết quả thực tế qua các kỳ nộp, không phải yếu tố định danh luật pháp cấu thành sắc thuế." },
+      { origin: 132, q: "Cấp nào sau đây có thẩm quyền phê duyệt dự toán ngân sách của nước ta?", options: ["Chính phủ", "Bộ Tài chính", "Quốc hội", "Chủ tịch nước"], ans: 2, exp: "Theo Luật NSNN, Quốc hội là cơ quan quyền lực cao nhất có thẩm quyền quyết định và phê duyệt dự toán ngân sách nhà nước hằng năm." },
+      { origin: 133, q: "Cấp nào sau đây có thẩm quyền phê duyệt dự toán ngân sách cấp Huyện?", options: ["UBND Huyện", "Hội đồng nhân dân Huyện", "Hội đồng nhân dân Tỉnh", "Chủ tịch Ủy ban nhân dân Huyện"], ans: 1, exp: "Theo luật định, cơ quan dân cử Hội đồng nhân dân cấp Huyện có thẩm quyền quyết định và phê duyệt dự toán ngân sách cấp huyện." },
+      { origin: 134, q: "Trong các khái niệm về phân cấp quản lý ngân sách nhà nước dưới đây, khái niệm nào là đúng?", options: ["Phân cấp quản lý ngân sách nhà nước là quá trình Nhà nước phân giao nhiệm vụ, quyền hạn, trách nhiệm nhất định giữa trung ương và cấp chính quyền địa phương", "Phân cấp quản lý ngân sách là quá trình Nhà nước phân phối và cấp phát ngân sách", "Phân cấp quản lý NS là quá trình Nhà nước giao dự toán", "Phân cấp quản lý ngân sách là quá trình Nhà nước động viên nguồn lực"], ans: 0, exp: "Phân cấp quản lý NSNN là sự phân định nhiệm vụ chi, nguồn thu và quyền hạn giữa các cấp chính quyền." },
+      { origin: 135, q: "Trong các giải pháp để đảm bảo cân đối ngân sách nhà nước sau đây, giải pháp nào là quan trọng và có tính bền vững nhất?", options: ["Đẩy mạnh và nâng cao hiệu quả sản xuất kinh doanh và lưu thông hàng hóa, dịch vụ", "Vay nợ trong và ngoài nước", "Phát hành tiền", "Lấy từ quỹ dự trữ Nhà nước"], ans: 0, exp: "Kinh tế phát triển hiệu quả tạo ra của cải và lợi nhuận là cội nguồn nuôi dưỡng nguồn thu thuế bền vững nhất cho ngân sách." }
+    ];
+
+    let currentIndex = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+    let flagged = new Set();
+    let isExam = false;
+    let timer = null;
+    let timeLeft = 45 * 60;
+    let currentFilter = 'all';
+
+    const qBadge = document.getElementById('qBadge');
+    const qTitle = document.getElementById('qTitle');
+    const optContainer = document.getElementById('optContainer');
+    const explainCard = document.getElementById('explainCard');
+    const explainBody = document.getElementById('explainBody');
+    const paletteGrid = document.getElementById('paletteGrid');
+    const counterText = document.getElementById('counterText');
+    const flagBtn = document.getElementById('flagBtn');
+    const modeBtn = document.getElementById('modeBtn');
+    const timerBadge = document.getElementById('timerBadge');
+    const finishBtn = document.getElementById('finishBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuestion(idx) {
+      currentIndex = idx;
+      const item = questions[idx];
+      qBadge.textContent = `CÂU HỎI ${idx + 1} / ${questions.length} (GỐC: CÂU ${item.origin})`;
+      qTitle.textContent = item.q;
+
+      flagBtn.textContent = flagged.has(idx) ? '🚩 Đã đánh dấu' : '🏳️ Đánh dấu';
+      flagBtn.style.color = flagged.has(idx) ? 'var(--warning)' : 'inherit';
+
+      optContainer.innerHTML = '';
+      const keys = ['A', 'B', 'C', 'D'];
+
+      item.options.forEach((txt, oIdx) => {
+        const div = document.createElement('div');
+        div.className = 'option-item';
+        if (userAnswers[idx] === oIdx) div.classList.add('selected');
+
+        if (!isExam && userAnswers[idx] !== null) {
+          if (oIdx === item.ans) div.classList.add('is-correct');
+          else if (userAnswers[idx] === oIdx) div.classList.add('is-wrong');
+        }
+
+        div.innerHTML = `
+          <div class="option-key">${keys[oIdx]}</div>
+          <div style="font-size:0.95rem;">${txt}</div>
+        `;
+        div.onclick = () => selectOption(oIdx);
+        optContainer.appendChild(div);
+      });
+
+      if (!isExam && userAnswers[idx] !== null) {
+        explainCard.style.display = 'block';
+        explainBody.textContent = item.exp;
+      } else {
+        explainCard.style.display = 'none';
+      }
+
+      updatePaletteUI();
+      updateCounter();
+    }
+
+    function selectOption(oIdx) {
+      userAnswers[currentIndex] = oIdx;
+      renderQuestion(currentIndex);
+    }
+
+    function buildPalette() {
+      paletteGrid.innerHTML = '';
+      questions.forEach((q, idx) => {
+        const b = document.createElement('button');
+        b.className = 'palette-btn';
+        b.id = `pal-${idx}`;
+        b.textContent = idx + 1;
+        b.onclick = () => renderQuestion(idx);
+        paletteGrid.appendChild(b);
+      });
+      updatePaletteUI();
+    }
+
+    function updatePaletteUI() {
+      questions.forEach((q, idx) => {
+        const b = document.getElementById(`pal-${idx}`);
+        if (!b) return;
+        b.className = 'palette-btn';
+
+        if (idx === currentIndex) b.classList.add('active');
+
+        const ans = userAnswers[idx];
+        if (ans !== null) {
+          if (isExam) {
+            b.classList.add('answered');
+          } else {
+            if (ans === q.ans) b.classList.add('correct-val');
+            else b.classList.add('wrong-val');
+          }
+        }
+
+        let show = true;
+        if (currentFilter === 'unanswered' && ans !== null) show = false;
+        if (currentFilter === 'wrong' && (ans === null || ans === q.ans)) show = false;
+        if (currentFilter === 'flagged' && !flagged.has(idx)) show = false;
+        b.style.display = show ? 'block' : 'none';
+      });
+    }
+
+    function updateCounter() {
+      const c = userAnswers.filter(a => a !== null).length;
+      counterText.textContent = `${c}/${questions.length} câu`;
+    }
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.onclick = (e) => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.dataset.filter;
+        updatePaletteUI();
+      };
+    });
+
+    flagBtn.onclick = () => {
+      if (flagged.has(currentIndex)) flagged.delete(currentIndex);
+      else flagged.add(currentIndex);
+      renderQuestion(currentIndex);
+    };
+
+    document.getElementById('prevBtn').onclick = () => {
+      if (currentIndex > 0) renderQuestion(currentIndex - 1);
+    };
+    document.getElementById('nextBtn').onclick = () => {
+      if (currentIndex < questions.length - 1) renderQuestion(currentIndex + 1);
+    };
+
+    window.addEventListener('keydown', (e) => {
+      const k = e.key.toUpperCase();
+      if (['A', '1'].includes(k)) selectOption(0);
+      else if (['B', '2'].includes(k)) selectOption(1);
+      else if (['C', '3'].includes(k)) selectOption(2);
+      else if (['D', '4'].includes(k)) selectOption(3);
+      else if (e.key === 'ArrowRight' && currentIndex < questions.length - 1) renderQuestion(currentIndex + 1);
+      else if (e.key === 'ArrowLeft' && currentIndex > 0) renderQuestion(currentIndex - 1);
+    });
+
+    modeBtn.onclick = () => {
+      isExam = !isExam;
+      modeBtn.textContent = isExam ? 'Chế độ: Thi thử (45p)' : 'Chế độ: Luyện tập';
+      timerBadge.style.display = isExam ? 'block' : 'none';
+
+      if (isExam) {
+        userAnswers = new Array(questions.length).fill(null);
+        timeLeft = 45 * 60;
+        clearInterval(timer);
+        timer = setInterval(() => {
+          timeLeft--;
+          const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+          const s = String(timeLeft % 60).padStart(2, '0');
+          timerBadge.textContent = `${m}:${s}`;
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            submitTest();
+          }
+        }, 1000);
+      } else {
+        clearInterval(timer);
+      }
+      renderQuestion(0);
+    };
+
+    finishBtn.onclick = () => submitTest();
+
+    function submitTest() {
+      clearInterval(timer);
+      let correct = 0;
+      userAnswers.forEach((ans, idx) => {
+        if (ans === questions[idx].ans) correct++;
+      });
+      const score = ((correct / questions.length) * 10).toFixed(2);
+      alert(`KẾT QUẢ BÀI LÀM:\n- Số câu đúng: ${correct} / ${questions.length} câu\n- Điểm số: ${score} / 10 điểm`);
+      isExam = false;
+      modeBtn.textContent = 'Chế độ: Luyện tập';
+      timerBadge.style.display = 'none';
+      renderQuestion(0);
+    }
+
+    resetBtn.onclick = () => {
+      if (confirm('Xóa kết quả và làm lại toàn bộ từ đầu?')) {
+        userAnswers = new Array(questions.length).fill(null);
+        flagged.clear();
+        renderQuestion(0);
+      }
+    };
+
+    buildPalette();
+    renderQuestion(0);
+  </script>
+</body>
+</html>
